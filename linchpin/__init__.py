@@ -306,6 +306,9 @@ class LinchpinAPI(object):
 
 
     def _get_role(self, role):
+        """
+        This function install role from ansible Galaxy
+        """
         for path in self.role_path:
             p = '{0}/{1}'.format(path, role)
 
@@ -317,14 +320,13 @@ class LinchpinAPI(object):
         # role was successfully installed or if the role was previously
         # installed.  It will return false otherwise
         if not galaxy_runner.install(role):
-            raise LinchpinError("role '{0]' not found in path: {1}\n. It also"
+            raise LinchpinError("role '{0}' not found in path: {1}\n. It also"
                                 " could not be installed via Ansible"
                                 " Galaxy".format(role, self.role_path))
 
 
     def _find_playbook_path(self, playbook):
         p = '{0}/{1}'.format(self.pb_path, playbook)
-
         if os.path.exists(os.path.expanduser(p)):
             return self.pb_path
 

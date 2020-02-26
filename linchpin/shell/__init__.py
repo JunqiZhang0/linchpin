@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# This file is the entry point of the command line interface
 
 from __future__ import print_function
 from __future__ import absolute_import
@@ -139,7 +140,7 @@ def _handle_results(ctx, results, return_code):
 def runcli(ctx, config, pinfile, template_data, outfile, workspace, verbose,
            version, creds_path, ask_vault_pass, no_monitor):
     """linchpin: hybrid cloud orchestration"""
-
+    import pdb; pdb.set_trace()
     ctx.load_config(lpconfig=config)
     # workspace arg in load_config used to extend linchpin.conf
     ctx.load_global_evars()
